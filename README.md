@@ -136,9 +136,13 @@ $ rosrun gmapping slam_gmapping
 ```
 
 
-in a fourth terminal `rosrun rviz rviz` and apply the rviz config
+in a fourth terminal `rosrun rviz rviz -d /turtlebot2_SLAM/workspace/catkin_ws/c/gmapping.rviz` and apply the rviz config
 
 finally, drive the robot around and if you are satisfied with the map, save the map in a fifthe terminal with `rosrun map_server map_saver -f myMap`
+
+
+![image](https://media.giphy.com/media/EZXEp4dufLPbiJmedV/giphy.gif)
+
 
 With the map_server you can load and save maps. Running map_server will generate the map.pgm and the map.yaml files:
 
@@ -149,7 +153,6 @@ With the map_server you can load and save maps. Running map_server will generate
     Black pixels: Occupied cells
     Gray pixels: Unknown state
 
-map.yaml of the Willow Garage environment
 
 2- map.yaml: The map metadata
 
@@ -161,6 +164,9 @@ map.yaml of the Willow Garage environment
     negate: This value will check whether the notation of black colored cell=occupied and white colored cell = free should be preserved
 
 
+If the map quality is low, it is because the gmapping parameters values used were the default values. In general, it’s essential to tune them in order to get a 100% accurate map. These parameters are all listed under the gmapping documentation, where you can look at them yourself. If you experiment with some of these parameter values, you should be able to get better maps.
+
+For example, you might try, reducing the angularUpdate and linearUpdate values so the map gets updated for smaller ranges of movements, reducing the x and y limits, which represent the initial map size, increasing the number of particles. You can try tweaking these parameters and/or any other parameter you think should be changed. 
 
 
 
