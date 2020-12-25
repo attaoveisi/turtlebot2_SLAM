@@ -127,6 +127,38 @@ $ roslaunch turtlebot_teleop keyboard_teleop.launch
 ![image](https://media.giphy.com/media/hj1HL3XpHSTPPLSrlt/giphy.gif)
 
 
+in a third terminal run the gmapping node as:
+
+```
+$ cd /home/workspace/catkin_ws
+$ source devel/setup.bash
+$ rosrun gmapping slam_gmapping
+```
+
+
+in a fourth terminal `rosrun rviz rviz` and apply the rviz config
+
+finally, drive the robot around and if you are satisfied with the map, save the map in a fifthe terminal with `rosrun map_server map_saver -f myMap`
+
+With the map_server you can load and save maps. Running map_server will generate the map.pgm and the map.yaml files:
+
+
+1- map.pgm: Picture of the map in occupancy grid representation
+
+    White pixels: Free cells
+    Black pixels: Occupied cells
+    Gray pixels: Unknown state
+
+map.yaml of the Willow Garage environment
+
+2- map.yaml: The map metadata
+
+    image: Map name
+    resolution: Resolution of the map (meters/pixel)
+    origin: Pose of the lower-left pixel in the map (x, y, Θ)
+    Occupied_thresh: Cell is considered occupied if its probability is greater than this threshold.
+    free_thresh: Cell is considered unoccupied or free if its probability is less than this threshold.
+    negate: This value will check whether the notation of black colored cell=occupied and white colored cell = free should be preserved
 
 
 
