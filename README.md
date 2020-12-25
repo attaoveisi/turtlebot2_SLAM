@@ -124,7 +124,7 @@ $ source devel/setup.bash
 $ roslaunch turtlebot_teleop keyboard_teleop.launch
 ```
 
-[![Watch the video](https://user-images.githubusercontent.com/17289954/103141653-996f3280-46f7-11eb-94c7-8d55b4e3057d.mp4)
+![image](https://media.giphy.com/media/hj1HL3XpHSTPPLSrlt/giphy.gif)
 
 
 
