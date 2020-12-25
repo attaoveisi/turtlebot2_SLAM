@@ -89,6 +89,43 @@ The algorithm procedure is explained as
 
 ## How to run the package?
 
+clone the package `git clone https://github.com/attaoveisi/turtlebot2_SLAM.git`
+
+build and source `cd turtlebot2_SLAM/workspace/catkin_ws && catkin_make && surce devel/setup.bash`
+
+Deploy the Turltebot in the Willow Garage environment:
+
+`$ roslaunch turtlebot_gazebo turtlebot_world.launch world_file:=worlds/willowgarage.world`
+
+![image](https://user-images.githubusercontent.com/17289954/103141614-0a621a80-46f7-11eb-9906-3bdde1cf5522.png)
+
+For SLAM we are using slma_gmapping package (see [link](http://wiki.ros.org/slam_gmapping)) which subscribes to `tf` which should contain info about the relation of laser, base, and odometry frames as well as the laser topic (`sensor:msgs/LaserScan`) and it publishe the map as `nav_msgs/OccupancyGrid` and `std_msgs/Float64`.
+
+the turtlebot will be driven with teleop package (keyboard). We will fake the laser measurement as it can be seen in `/workspace/catkin_ws/src/turtlebot_simulator/turtlebot_gazebo/launch/turtlebot_world.launch`:
+
+```sh
+  <!-- Fake laser -->
+  <node pkg="nodelet" type="nodelet" name="laserscan_nodelet_manager" args="manager"/>
+  <node pkg="nodelet" type="nodelet" name="depthimage_to_laserscan"
+        args="load depthimage_to_laserscan/DepthImageToLaserScanNodelet laserscan_nodelet_manager">
+    <param name="scan_height" value="10"/>
+    <param name="output_frame_id" value="camera_depth_frame"/>
+    <param name="range_min" value="0.45"/>
+    <remap from="image" to="/camera/depth/image_raw"/>
+    <remap from="scan" to="/scan"/>
+  </node>
+```
+
+in a second terminal, launch the turtlebot2 teleop package by: 
+
+```
+$ cd /home/workspace/catkin_ws
+$ source devel/setup.bash
+$ roslaunch turtlebot_teleop keyboard_teleop.launch
+```
+
+https://user-images.githubusercontent.com/17289954/103141653-996f3280-46f7-11eb-94c7-8d55b4e3057d.mp4
+
 
 
 
