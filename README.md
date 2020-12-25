@@ -75,9 +75,15 @@ With the grid mapping algorithm one can model the environment using grid maps wi
 
 the grid-based FastSLAM consists of thre steps:
 
-![image](https://user-images.githubusercontent.com/17289954/103097162-a8c28300-4606-11eb-9ca8-c26ea85199c1.png)
-
 ![image](https://user-images.githubusercontent.com/17289954/103132599-8df31b80-46a5-11eb-96dc-cbcdc5d5bb7f.png)
+
+The algorithm procedure is explained as
+
+![image](https://user-images.githubusercontent.com/17289954/103132644-e0ccd300-46a5-11eb-815e-c3c65b3ebc4e.png)
+
+## How to run the package?
+
+
 
 
 
