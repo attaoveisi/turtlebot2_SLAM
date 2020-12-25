@@ -1,7 +1,9 @@
 # turtlebot2_SLAM
-This is an example of how to to integrate a fast SLAM algorithm with Turtlebot2
+This is an example of how to to integrate a fast SLAM algorithm with Turtlebot2. For this purposes, the slam_gmapping package is used.
 
-## The SLAM is the problem of estimating a map and robot pose given the measurements from environment and inputs:
+## SLAM
+
+SLAM is the problem of estimating a map and robot pose given the measurements from environment and inputs:
 
 ![image](https://user-images.githubusercontent.com/17289954/103096067-01901c80-4603-11eb-871d-ad83134d9b4e.png)
 
